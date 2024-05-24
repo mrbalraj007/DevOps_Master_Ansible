@@ -1,0 +1,11 @@
+---
+- name: Change file ownership, group and permissions
+  hosts: all
+  tasks:
+    - name: Ensure /tmp/foo.conf has the correct permissions
+      file:
+        path: /tmp/abc.txt
+        owner: foo
+        group: foo
+        mode: '0644'
+

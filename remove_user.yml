@@ -1,0 +1,12 @@
+---
+- name: Remove dc-ops user from sudoers
+  hosts: all
+  become: true
+  tasks:
+    - name: Remove dc-ops from sudoers
+      lineinfile:
+        path: /etc/sudoers
+        state: absent
+        regexp: '^dc-ops'
+        validate: 'visudo -cf %s'
+

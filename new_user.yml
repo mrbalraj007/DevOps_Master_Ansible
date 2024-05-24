@@ -1,0 +1,25 @@
+---
+- name: Create a user and set the password on all remote machines
+  hosts: all
+  become: yes  # This ensures the tasks are run with elevated privileges
+  vars:
+    username: "test"
+    password_hash: "$6$mW8FqSG8H0vBiBPg$tPG7xsnPhgKUCsj2bPpSrA4Asxq0Zyf3DfbHpp1KPZFSC3DGf5bDs81TCBSWm1q0Xji7v8HSDsoO2mRl6YdkQ1"  # Replace with your generated hash
+
+  tasks:
+    - name: Ensure the user exists
+      user:
+        name: "{{ username }}"
+        password: "{{ password_hash }}"
+        state: present
+        shell: /bin/bash  # Optional: Specify the default shell for the user
+
+    - name: Ensure the user's home directory exists
+      file:
+        path: "/home/{{ username }}"
+        state: directory
+        owner: "{{ username }}"
+        group: "{{ username }}"
+        mode: '0755'
+
+

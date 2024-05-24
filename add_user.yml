@@ -1,0 +1,13 @@
+---
+- name: Ensure dc-ops user has NOPASSWD sudo access
+  hosts: all
+  become: true
+  tasks:
+    - name: Add dc-ops to sudoers
+      lineinfile:
+        path: /etc/sudoers
+        state: present
+        regexp: '^dc-ops'
+        line: 'dc-ops ALL=(ALL) NOPASSWD: ALL'
+        validate: 'visudo -cf %s'
+

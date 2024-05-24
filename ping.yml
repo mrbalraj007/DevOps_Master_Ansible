@@ -1,0 +1,6 @@
+- hosts: all
+  # order: reverse_sorted
+  tasks:
+    - name: check connectivity
+      ping:
+
