@@ -1,0 +1,13 @@
+- hosts : all
+  become: true
+  tasks:
+
+  - name: install httpd package
+    yum:
+      name: httpd
+      state: latest
+
+  - name: install the tmux package
+    yum:
+      name: tmux
+      state: latest
