@@ -1,0 +1,2 @@
+ansible all -m gather_facts --limit node04
+ansible all -m gather_facts --limit node04 | grep ansible_distribution
