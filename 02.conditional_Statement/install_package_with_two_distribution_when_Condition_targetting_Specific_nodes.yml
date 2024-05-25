@@ -1,0 +1,42 @@
+- hosts: all
+  become: true
+  tasks:
+
+  - name: install updates (RedHat)
+    dnf:
+      update_only: yes
+      update_cache: yes
+    when: ansible_distribution == "RedHat"
+      
+
+  - name: install updates (Ubuntu)
+    apt:
+      upgrade: dist
+      update_cache: yes
+    when: ansible_distribution == "Ubuntu"
+
+
+- hosts: node03
+  become: true
+  tasks:
+
+    # This play is for Ubuntu OS
+
+  - name: install apache2 package
+    apt:
+      name: 
+        - apache2
+        - libapache2-mod-php  
+      state: present
+    when: ansible_distribution == "Ubuntu"
+
+
+    # This play is for RHEL OS
+
+  - name: install httpd package
+    dnf:
+      name: 
+        - httpd
+        - php
+      state: present
+    when: ansible_distribution == "RedHat"

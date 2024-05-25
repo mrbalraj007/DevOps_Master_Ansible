@@ -1,0 +1,75 @@
+- hosts: all
+  become: true
+  pre_tasks:
+
+  - name: install updates (RedHat)
+    tags: always
+    dnf:
+      update_only: yes
+      update_cache: yes
+    when: ansible_distribution == "RedHat"
+      
+
+  - name: install updates (Ubuntu)
+    tags: always
+    apt:
+      upgrade: dist
+      update_cache: yes
+    when: ansible_distribution == "Ubuntu"
+
+
+- hosts: node03
+  become: true
+  tasks:
+
+    # This play is for Ubuntu OS
+
+  - name: install apache2 package
+    tags: apache, apache2, ubuntu
+    apt:
+      name: 
+        - apache2
+        - libapache2-mod-php  
+      state: present
+    when: ansible_distribution == "Ubuntu"
+
+
+    # This play is for RHEL OS
+
+  - name: install httpd package
+    tags: httpd, php, RedHat
+    dnf:
+      name: 
+        - httpd
+        - php
+      state: present
+    when: ansible_distribution == "RedHat"
+
+      # we are creating a file and copy to destination location:  
+  - name: copy the default html file for site.
+    tags: apache,apache2,httpd
+    copy:
+      src: default_site.html #here file name is default
+      dest: /var/www/html/index.html # here would be the custom file name but content would be copied from default file
+      owner: root
+      group: root
+      mode: 0644
+
+
+- hosts: node02
+  become: true
+  tasks:
+
+    - name: install mariadb package (Ubuntu)
+      tags: Ubuntu, mariadb
+      apt:
+        name: mariadb
+        state: latest
+      when: ansible_distribution == "Ubuntu"
+
+    - name: install mariadb server (Redhat)
+      tags: mariadb-server
+      dnf:
+        name: mariadb-server
+        state: latest
+      when: ansible_distribution == "RehHat"
