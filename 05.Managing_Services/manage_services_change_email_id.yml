@@ -1,0 +1,46 @@
+- hosts: all
+  become: true
+  pre_tasks:
+
+  - name: install updates (RedHat)
+    tags: always
+    dnf:
+      update_only: yes
+      update_cache: yes
+    when: ansible_distribution == "RedHat"
+      
+
+  - name: install updates (Ubuntu)
+    tags: always
+    apt:
+      upgrade: dist
+      update_cache: yes
+    when: ansible_distribution == "Ubuntu"
+
+
+- hosts: node03
+  become: true
+  tasks:
+    - name: manage the services
+      tags: httpd,service
+      service:
+       name: httpd
+       state: started
+       enabled: yes
+      when: ansible_distribution == "RedHat"
+
+    - name: change e-mail address for admin in file httpd.config
+      tags: httpd,RedHat
+      lineinfile:
+        path: /etc/httpd/conf/httpd.conf
+        regexp: '^ServerAdmin'
+        line: ServerAdmin xyz@something.com
+      when: ansible_distribution == "RedHat"
+      register: httpd  # here we are registing the value in variable and will call in next play
+
+    - name: restart the httpd (RedHat)
+      tags: httpd
+      service:
+        name: httpd
+        state: restarted
+      when: httpd.changed # here we are calling the register value 
