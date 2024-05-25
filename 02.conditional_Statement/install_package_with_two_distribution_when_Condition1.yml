@@ -1,0 +1,31 @@
+- hosts : all
+  become: true
+  tasks:
+    # This play is for Ubuntu OS
+  - name: update repository index
+    apt: 
+      update_cache: yes
+    when: ansible_distribution_version ==  "Ubuntu"
+
+  - name: install apache2 package
+    apt:
+      name: 
+        - apache2
+        - libapache2-mod-php  
+      state: present 
+    when: ansible_distribution == "Ubuntu"
+
+
+    # This play is for RHEL OS
+  - name: update repository index
+    dnf:
+      update_cache: yes
+    when: ansible_distribution_version ==  "RedHat"
+
+  - name: install httpd package
+    dnf:
+      name: 
+        - httpd
+        - php
+      state: present
+    when: ansible_distribution == "RedHat"
