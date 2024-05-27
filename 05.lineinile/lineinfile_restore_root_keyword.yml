@@ -1,0 +1,27 @@
+---
+ # Ensure we capture each instance of root "command: grep -n '\broot\b' /etc/sudoers"
+- name: Modify sudoers file
+  hosts: all
+  become: true
+  become_user: root
+  tasks:
+    - name: Backup sudoers file
+      shell: cp /etc/sudoers /etc/sudoers.bak
+      tags: backup
+
+    - name: Replace all instances of root keyword in sudoers file
+      replace:
+        path: /etc/sudoers
+        regexp: 'new_keyword'
+        replace: 'root'
+      tags:
+        - sudoers
+
+    - name: Validate sudoers file syntax
+      command: visudo -cf /etc/sudoers
+      register: visudo_check
+      changed_when: false
+      failed_when: visudo_check.rc != 0
+      tags: validate
+      
+

@@ -1,0 +1,14 @@
+---
+- name: Fetch DNS Server IP
+  hosts: all
+  gather_facts: no
+  tasks:
+    - name: Get DNS Server IP
+      command: nmcli dev show | grep 'IP4.DNS'
+      register: dns_output
+      changed_when: False
+
+    - name: Display DNS Server IP
+      debug:
+        msg: "Server: {{ inventory_hostname }}, DNS Server IP: {{ dns_output.stdout_lines }}"
+

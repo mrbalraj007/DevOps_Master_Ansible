@@ -1,0 +1,22 @@
+---
+- name: Retrieve DNS IP addresses configured on network cards
+  hosts: all
+  gather_facts: no
+  tasks:
+    - name: Get server hostname
+      command: hostname
+      register: hostname_result
+
+    - name: Retrieve DNS IP addresses
+      command: cat /etc/resolv.conf
+      register: resolv_conf
+
+    - name: Extract DNS IP addresses
+      set_fact:
+        dns_servers: "{{ resolv_conf.stdout_lines | select('match', '^nameserver') | map('regex_replace', '^nameserver\\s+', '') | list }}"
+
+    - name: Display server name and DNS IP addresses
+      debug:
+        msg: "Server: {{ hostname_result.stdout }} - DNS IP Addresses: {{ dns_servers | join(', ') }}"
+
+

@@ -1,0 +1,17 @@
+---
+- name: Get DNS server IP address
+  hosts: all
+  gather_facts: no
+  tasks:
+    - name: Read the /etc/resolv.conf file
+      command: cat /etc/resolv.conf
+      register: resolv_conf_content
+      
+    - name: Parse DNS server IP address
+      set_fact:
+        dns_servers: "{{ resolv_conf_content.stdout | regex_findall('nameserver\\s+(\\d+\\.\\d+\\.\\d+\\.\\d+)') }}"
+    
+    - name: Print DNS server IP address
+      debug:
+        msg: "Server: {{ inventory_hostname }} - DNS Servers: {{ dns_servers | join(', ') }}"
+
