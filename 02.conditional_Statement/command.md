@@ -1,5 +1,9 @@
-#To get all information for host "Node04"
+# To get all information for host "Node04"
+```bash 
 ansible all -m gather_facts --limit node04
+```
 
 # To get OS details for host "Node04"
+```bash 
 ansible all -m gather_facts --limit node04 | grep ansible_distribution
+```
