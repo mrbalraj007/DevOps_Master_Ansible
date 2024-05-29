@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # List of remote machines
-REMOTE_HOSTS=("node01" "node02" "node03" "node04")
+REMOTE_HOSTS=("node01" "node02" "node03")
 
 # SSH user
 USER="dc-ops"

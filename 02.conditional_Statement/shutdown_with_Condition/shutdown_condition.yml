@@ -1,0 +1,17 @@
+---
+- name: Check OS distribution and shutdown accordingly
+  hosts: all
+  become: true
+  tasks:
+    - name: Shut down Debian flavored systems
+      shell: /sbin/shutdown -h now
+      when: ansible_facts['os_family'] == "Debian"
+
+    - name: Shut down RedHat flavored systems
+      shell: /sbin/shutdown -h now
+      when: ansible_facts['os_family'] == "RedHat"
+
+    - name: Shut down Ubuntu flavored systems
+      shell: /sbin/shutdown -h now
+      when: ansible_facts['os_family'] == "Ubuntu"
+

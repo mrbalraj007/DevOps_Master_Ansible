@@ -1,0 +1,24 @@
+---
+- name: Check OS distribution and install nginx accordingly
+  hosts: all
+  become: true
+  tasks:
+    - name: install Nginx on non-RHEL
+      apt:
+        name: nginx
+        state: latest
+      when: ansible_facts['os_family'] == "Debian" or ansible_facts['os_family'] == "Ubuntu"
+
+    - name: install Ngnix on RedHat
+      yum:
+         name: nginx
+         state: latest
+      when: ansible_facts['os_family'] == "RedHat"
+
+    - name: Ensure Nginx is running
+      service:
+        name: nginx
+        state: started
+        enabled: yes
+
+
