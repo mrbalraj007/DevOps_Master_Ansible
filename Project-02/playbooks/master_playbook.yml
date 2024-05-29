@@ -1,0 +1,16 @@
+# ansible_project/playbooks/master_playbook.yml
+---
+#- name: Execute all playbooks
+#  hosts: localhost
+#  gather_facts: false
+
+#  tasks:
+    - name: Include Playbook 1
+      import_playbook: playbook1.yml
+
+    - name: Include Playbook 2
+      import_playbook: playbook2.yml
+
+    - name: Include Playbook 3
+      import_playbook: playbook3.yml
+

@@ -1,0 +1,10 @@
+---
+- name: Install Apache
+  hosts: my_servers
+  tasks:
+    - name: Install Apache
+      apt:
+        name: apache2
+        state: present
+      become: yes
+

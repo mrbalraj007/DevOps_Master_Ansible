@@ -1,0 +1,14 @@
+---
+- name: Check Python version on RHEL 9
+  hosts: all
+  tasks:
+    - name: Get Python version
+      command: python --version
+      register: python_version_output
+      ignore_errors: yes
+
+    - name: Write Python version to file
+      copy:
+        content: "{{ python_version_output.stdout }}"
+        dest: /tmp/epython_version.txt
+

@@ -1,0 +1,13 @@
+---
+- name: Master Playbook
+  hosts: localhost
+  tasks:
+    - name: Run Playbook 1 - Install Apache
+      include_playbook: playbook1.yml
+
+    - name: Run Playbook 2 - Start Apache
+      include_playbook: playbook2.yml
+
+    - name: Run Playbook 3 - Deploy HTML file
+      include_playbook: playbook3.yml
+
