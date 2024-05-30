@@ -1,0 +1,14 @@
+---
+- name: Ensure web server is installed
+  yum:
+    name: "{{ webserver_packages }}"
+    state: present
+  when: ansible_os_family == 'RedHat'
+
+- name: Ensure web server service is running
+  service:
+    name: "{{ webserver_service }}"
+    state: started
+    enabled: true
+  when: ansible_os_family == 'RedHat'
+

@@ -1,0 +1,4 @@
+webserver_packages:
+  - httpd
+webserver_service: httpd
+

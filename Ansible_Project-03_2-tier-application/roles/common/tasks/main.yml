@@ -1,0 +1,40 @@
+---
+- name: Ensure common packages are installed on non-RedHat systems
+  package:
+    name: "{{ common_packages }}"
+    state: present
+  when: ansible_os_family != 'RedHat'
+
+- name: Install EPEL GPG key on Red Hat
+  rpm_key:
+    state: present
+    key: https://dl.fedoraproject.org/pub/epel/RPM-GPG-KEY-EPEL-9
+  when: ansible_os_family == 'RedHat'
+
+- name: Download EPEL release package to /tmp
+  get_url:
+    url: https://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm
+    dest: /tmp/epel-release-latest-9.noarch.rpm
+  when: ansible_os_family == 'RedHat'
+
+- name: Install EPEL repository from local RPM
+  yum:
+    name: /tmp/epel-release-latest-9.noarch.rpm
+    state: present
+  when: ansible_os_family == 'RedHat'
+
+- name: Ensure EPEL repository is enabled
+  yum_repository:
+    name: epel
+    description: Extra Packages for Enterprise Linux
+    metalink: https://mirrors.fedoraproject.org/metalink?repo=epel-9&arch=$basearch
+    gpgcheck: yes
+    enabled: yes
+  when: ansible_os_family == 'RedHat'
+
+- name: Ensure common packages are installed on Red Hat
+  yum:
+    name: "{{ common_packages }}"
+    state: present
+  when: ansible_os_family == 'RedHat'
+

@@ -1,0 +1,8 @@
+---
+- name: Configure Red Hat Nodes
+  hosts: redhat
+  become: yes
+  roles:
+    - common
+    - webapp
+
