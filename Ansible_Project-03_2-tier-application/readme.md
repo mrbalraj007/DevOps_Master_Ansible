@@ -2,7 +2,27 @@
 
 ## Project Structure:
 
-![alt text](image.png)
+```bash
+
+├── ansible.cfg
+├── inventories
+│   └── production
+│       └── hosts.ini
+├── playbooks
+│   └── master_playbook.yml
+├── readme.md
+└── roles
+    ├── common
+    │   ├── tasks
+    │   │   └── main.yml
+    │   └── vars
+    │       └── main.yml
+    └── webapp
+        ├── tasks
+        │   └── main.yml
+        └── vars
+            └── main.yml
+```
 
 ### hosts.ini file inside the inventories/production/ directory:
 
