@@ -1,4 +1,3 @@
-# ansible_project/playbooks/master_playbook.yml
 ---
 #- name: Execute all playbooks
 #  hosts: localhost

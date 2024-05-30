@@ -1,4 +1,3 @@
-# ansible_project/playbooks/playbook3.yml
 ---
 - name: Configure MySQL on database servers
   hosts: dbservers
