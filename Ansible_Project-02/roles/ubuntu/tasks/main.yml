@@ -1,0 +1,10 @@
+---
+- name: Update apt cache
+  apt:
+    update_cache: yes
+
+- name: Ensure unattended-upgrades package is installed
+  apt:
+    name: unattended-upgrades
+    state: present
+

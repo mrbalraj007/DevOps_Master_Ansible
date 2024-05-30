@@ -1,0 +1,39 @@
+---
+- name: Ensure all packages are up to date on RedHat
+  yum:
+    name: '*'
+    state: latest
+  when: ansible_os_family == "RedHat"
+
+- name: Ensure all packages are up to date on Debian/Ubuntu
+  apt:
+    name: '*'
+    state: latest
+  when: ansible_os_family == "Debian"
+
+- name: Ensure unattended-upgrades package is installed (Debian/Ubuntu)
+  apt:
+    name: unattended-upgrades
+    state: present
+  when: ansible_os_family == "Debian"
+
+- name: Ensure yum-cron package is installed and enabled (RedHat)
+  yum:
+    name: yum-cron
+    state: present
+  when: ansible_os_family == "RedHat"
+
+- name: Enable and start unattended-upgrades service (Debian/Ubuntu)
+  service:
+    name: unattended-upgrades
+    enabled: yes
+    state: started
+  when: ansible_os_family == "Debian"
+
+- name: Enable and start yum-cron service (RedHat)
+  service:
+    name: yum-cron
+    enabled: yes
+    state: started
+  when: ansible_os_family == "RedHat"
+

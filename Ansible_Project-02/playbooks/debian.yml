@@ -1,0 +1,9 @@
+---
+- name: Debian Configuration
+  hosts: debian
+  tasks:
+    - name: Ensure sudo package is installed
+      apt:
+        name: sudo
+        state: present
+

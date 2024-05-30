@@ -1,0 +1,6 @@
+---
+- name: Create application directory
+  file:
+    path: /opt/myapp
+    state: directory
+

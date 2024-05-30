@@ -1,0 +1,9 @@
+---
+- name: RedHat Configuration
+  hosts: redhat
+  tasks:
+    - name: Install EPEL repository
+      yum:
+        name: epel-release
+        state: present
+

@@ -1,0 +1,15 @@
+---
+- name: Common Configuration
+  hosts: all
+  tasks:
+    - name: Ensure the latest version of apt/yum is installed
+      package:
+        name: "{{ item }}"
+        state: latest
+      loop: "{{ packages }}"
+      vars:
+        packages:
+          - git
+          - vim
+          - curl
+

@@ -1,0 +1,14 @@
+---
+- name: Master Playbook
+  hosts: all
+  become: yes
+  gather_facts: yes
+
+  roles:
+    - common
+    - { role: redhat, when: ansible_os_family == "RedHat" }
+    - { role: ubuntu, when: ansible_distribution == "Ubuntu" }
+    - { role: debian, when: ansible_distribution == "Debian" }
+    - app-deploy
+    - security
+

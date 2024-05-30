@@ -1,0 +1,9 @@
+---
+- name: Application Deployment
+  hosts: all
+  tasks:
+    - name: Create application directory
+      file:
+        path: /opt/myapp
+        state: directory
+

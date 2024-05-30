@@ -1,0 +1,12 @@
+---
+- name: Security Configuration
+  hosts: all
+  tasks:
+    - name: Ensure UFW is installed and enabled
+      package:
+        name: ufw
+        state: present
+    - name: Enable UFW
+      ufw:
+        state: enabled
+

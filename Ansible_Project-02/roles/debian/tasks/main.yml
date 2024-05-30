@@ -1,0 +1,10 @@
+---
+- name: Update apt cache
+  apt:
+    update_cache: yes
+
+- name: Ensure sudo package is installed
+  apt:
+    name: sudo
+    state: present
+

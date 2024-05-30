@@ -1,0 +1,11 @@
+[redhat]
+redhat-client ansible_host=node01 ansible_user=dc-ops
+redhat-client ansible_host=node02 ansible_user=dc-ops
+redhat-client ansible_host=node03 ansible_user=dc-ops
+
+[ubuntu]
+ubuntu-client ansible_host=node04 ansible_user=dc-ops
+
+[debian]
+debian-client ansible_host=node05 ansible_user=dc-ops
+
