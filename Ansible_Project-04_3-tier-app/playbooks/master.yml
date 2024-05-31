@@ -1,0 +1,13 @@
+- name: Deploy 3-Tier Application
+  hosts: all
+  become: yes
+  gather_facts: yes
+
+  roles:
+    - role: web
+      when: inventory_hostname in groups['web']
+    - role: app
+      when: inventory_hostname in groups['app']
+    - role: db
+      when: inventory_hostname in groups['db']
+
