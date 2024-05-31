@@ -1,0 +1,14 @@
+---
+- name: Copy application artifact
+  become: true
+  copy:
+    src: app.jar
+    dest: /opt/myapp/app.jar
+
+- name: Start application service
+  become: true
+  systemd:
+    name: myapp
+    state: started
+    enabled: yes
+

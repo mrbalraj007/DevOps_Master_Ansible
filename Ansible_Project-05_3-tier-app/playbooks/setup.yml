@@ -1,0 +1,26 @@
+# playbooks/setup.yml
+---
+- name: Setup Infrastructure
+  hosts: all
+  become: true
+  gather_facts: true
+  tasks:
+    - name: Install common packages
+      package:
+        name: "{{ item }}"
+        state: present
+      loop: "{{ common_package_list[ansible_os_family] }}"
+      when: ansible_os_family in common_package_list.keys()
+
+- name: Configure web servers
+  hosts: webservers
+  become: true
+  roles:
+    - webserver
+
+- name: Configure database server
+  hosts: databases
+  become: true
+  roles:
+    - database
+

@@ -1,0 +1,28 @@
+# inventories/production/group_vars/all.yml
+---
+common_package_list:
+  RedHat: 
+    - vim
+    - git
+  Debian: 
+    - vim-tiny
+    - git
+  Ubuntu: 
+    - vim
+    - git
+
+httpd_package:
+  RedHat: httpd
+  Debian: apache2
+  Ubuntu: apache2
+
+mysql_package:
+  RedHat: mariadb-server
+  Debian: mariadb-server
+  Ubuntu: mariadb-server
+
+mysql_service:
+  RedHat: mariadb
+  Debian: mariadb
+  Ubuntu: mariadb
+

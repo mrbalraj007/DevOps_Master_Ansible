@@ -1,0 +1,15 @@
+[webservers]
+Node01
+Node02
+Node03
+
+[databases]
+Node04
+
+[applications]
+Node01
+Node02
+Node03
+Node04
+Node05
+

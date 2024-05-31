@@ -1,0 +1,15 @@
+# roles/webserver/tasks/main.yml
+---
+- name: Install web server packages
+  become: true
+  package:
+    name: "{{ httpd_package[ansible_os_family] }}"
+    state: present
+
+- name: Start and enable web server
+  become: true
+  systemd:
+    name: "{{ httpd_package[ansible_os_family] }}"
+    state: started
+    enabled: yes
+

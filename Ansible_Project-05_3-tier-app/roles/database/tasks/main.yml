@@ -1,0 +1,15 @@
+# roles/database/tasks/main.yml
+---
+- name: Install database server packages
+  become: true
+  package:
+    name: "{{ mysql_package[ansible_os_family] }}"
+    state: present
+
+- name: Start and enable database server
+  become: true
+  systemd:
+    name: "{{ mysql_service[ansible_os_family] }}"
+    state: started
+    enabled: yes
+
