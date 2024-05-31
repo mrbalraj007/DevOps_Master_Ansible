@@ -1,0 +1,31 @@
+- name: Update APT package list on Debian
+  ansible.builtin.apt:
+    update_cache: yes
+  when: ansible_distribution == "Debian"
+
+- name: Install MySQL on RedHat
+  ansible.builtin.yum:
+    name: mysql-server
+    state: present
+  when: ansible_os_family == "RedHat"
+
+- name: Install MySQL on Debian/Ubuntu
+  ansible.builtin.apt:
+    name: mariadb-server
+    state: present
+  when: ansible_distribution == "Debian"
+
+- name: Start and Enable MySQL
+  ansible.builtin.service:
+    name: mysql
+    state: started
+    enabled: true
+  when: ansible_os_family == "RedHat"
+
+- name: Start and Enable MariaDB on Debian
+  ansible.builtin.service:
+    name: mariadb
+    state: started
+    enabled: true
+  when: ansible_distribution == "Debian"
+
