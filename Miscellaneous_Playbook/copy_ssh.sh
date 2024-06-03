@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # List of remote machines
-REMOTE_HOSTS=("node01" "node02" "node03")
-
+#REMOTE_HOSTS=("node01" "node02" "node03")
+REMOTE_HOSTS=("docker")
 # SSH user
 USER="dc-ops"
 

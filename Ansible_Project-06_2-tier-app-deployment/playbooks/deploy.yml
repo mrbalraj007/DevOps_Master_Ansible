@@ -1,0 +1,4 @@
+---
+- import_playbook: setup-web.yml
+- import_playbook: setup-db.yml
+

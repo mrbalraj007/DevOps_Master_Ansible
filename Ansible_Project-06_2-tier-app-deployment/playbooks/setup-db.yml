@@ -1,0 +1,7 @@
+---
+- name: Setup Database Servers
+  hosts: dbservers
+  become: true
+  roles:
+    - dbserver
+

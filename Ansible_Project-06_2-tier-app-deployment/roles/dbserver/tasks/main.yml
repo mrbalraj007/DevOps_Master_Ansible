@@ -1,0 +1,27 @@
+---
+- name: Install MySQL
+  ansible.builtin.yum:
+    name: mysql-server
+    state: present
+  when: ansible_os_family == "RedHat"
+
+- name: Install MySQL on Debian-based systems
+  ansible.builtin.apt:
+    name: mysql-server
+    state: present
+  when: ansible_os_family == "Debian"
+
+- name: Start and enable MySQL
+  ansible.builtin.service:
+    name: mysqld
+    state: started
+    enabled: true
+  when: ansible_os_family == "RedHat"
+
+- name: Start and enable MySQL on Debian-based systems
+  ansible.builtin.service:
+    name: mysql
+    state: started
+    enabled: true
+  when: ansible_os_family == "Debian"
+
