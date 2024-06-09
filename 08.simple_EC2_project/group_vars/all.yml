@@ -1,0 +1,7 @@
+aws_access_key: AKIAVNYQ4ANAZ
+aws_secret_key: Ea7bVXvBIHW
+region: us-east-1
+ami_id: ami-00beae93a2d981137
+instance_type: t2.micro
+key_name: MYLABKEY
+
