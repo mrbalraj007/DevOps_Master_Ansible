@@ -1,5 +1,5 @@
-aws_access_key: AIF5UJGV
-aws_secret_key: E
+aws_access_key: # update your keys
+aws_secret_key: # update your keys
 region: us-east-1
 ami_id: ami-00beae93a2d981137
 instance_type: t2.micro
