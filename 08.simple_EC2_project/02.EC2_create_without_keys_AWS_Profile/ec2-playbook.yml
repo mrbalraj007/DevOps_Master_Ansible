@@ -1,0 +1,8 @@
+---
+- hosts: localhost
+  gather_facts: false
+  tasks:
+    - name: Include EC2 role
+      import_role:
+        name: ec2_instance
+
