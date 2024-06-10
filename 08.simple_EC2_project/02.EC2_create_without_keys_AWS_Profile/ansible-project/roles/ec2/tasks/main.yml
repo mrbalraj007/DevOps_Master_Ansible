@@ -1,0 +1,19 @@
+---
+- name: Launch EC2 instance
+  amazon.aws.ec2_instance:
+    aws_profile: "{{ aws_profile }}"
+    region: "{{ region }}"
+    image_id: "{{ ami }}"
+    instance_type: "{{ instance_type }}"
+    key_name: "{{ key_name }}"
+    vpc_subnet_id: "{{ subnet_id }}"
+    security_groups: "{{ security_group }}"
+    wait: yes
+  register: ec2_instance
+
+- name: Add new instances to host group
+  add_host:
+    hostname: "{{ item.network_interfaces[0].association.public_ip }}"
+    groupname: web
+  loop: "{{ ec2_instance.instances }}"
+

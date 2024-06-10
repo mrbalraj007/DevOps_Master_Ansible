@@ -1,0 +1,7 @@
+aws_profile: my_aws_profile_name
+region: us-east-1
+ami: ami-00beae93a2d981137  # Replace with your preferred AMI ID
+instance_type: t2.micro
+key_name: MYLABKEY  # Replace with your key name
+security_group: ALL_TRAFFIC_ALLOWED  # Replace with your security group ID
+subnet_id: subnet-8212e1c9  # Replace with your subnet ID

@@ -1,0 +1,12 @@
+---
+- name: Launch EC2 instance and setup Nginx
+  hosts: localhost
+  roles:
+    - ec2
+
+- name: Configure Nginx on EC2
+  hosts: web
+  become: yes
+  roles:
+    - nginx
+
