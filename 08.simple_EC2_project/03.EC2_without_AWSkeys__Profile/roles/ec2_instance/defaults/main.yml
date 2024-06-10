@@ -1,0 +1,13 @@
+---
+aws_profile: my_aws_profile_name
+aws_region: us-east-1
+instance_type: t2.micro
+image_id: ami-00beae93a2d981137
+count: 1
+wait: yes
+key_name: MYLABKEY
+vpc_subnet_id: subnet-1175424b
+security_group: my-security-group
+assign_public_ip: yes
+instance_tags:
+  Name: MyNewInstance
