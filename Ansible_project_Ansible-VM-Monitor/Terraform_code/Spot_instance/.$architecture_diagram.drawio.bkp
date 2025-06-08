@@ -1,0 +1,111 @@
+<mxfile host="app.diagrams.net" modified="2023-07-26T12:00:00.000Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36" etag="abc123" version="14.9.0" type="device">
+  <diagram id="prtHgNgQTEPvFCAcTncT" name="AWS Ansible VM Monitoring Architecture">
+    <mxGraphModel dx="1422" dy="762" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <!-- AWS Cloud -->
+        <mxCell id="2" value="AWS Cloud" style="points=[[0,0],[0.25,0],[0.5,0],[0.75,0],[1,0],[1,0.25],[1,0.5],[1,0.75],[1,1],[0.75,1],[0.5,1],[0.25,1],[0,1],[0,0.75],[0,0.5],[0,0.25]];outlineConnect=0;gradientColor=none;html=1;whiteSpace=wrap;fontSize=12;fontStyle=0;container=1;pointerEvents=0;collapsible=0;recursiveResize=0;shape=mxgraph.aws4.group;grIcon=mxgraph.aws4.group_aws_cloud;strokeColor=#232F3E;fillColor=none;verticalAlign=top;align=left;spacingLeft=30;fontColor=#232F3E;dashed=0;" vertex="1" parent="1">
+          <mxGeometry x="40" y="80" width="760" height="600" as="geometry" />
+        </mxCell>
+        <!-- VPC -->
+        <mxCell id="3" value="VPC" style="points=[[0,0],[0.25,0],[0.5,0],[0.75,0],[1,0],[1,0.25],[1,0.5],[1,0.75],[1,1],[0.75,1],[0.5,1],[0.25,1],[0,1],[0,0.75],[0,0.5],[0,0.25]];outlineConnect=0;gradientColor=none;html=1;whiteSpace=wrap;fontSize=12;fontStyle=0;container=1;pointerEvents=0;collapsible=0;recursiveResize=0;shape=mxgraph.aws4.group;grIcon=mxgraph.aws4.group_vpc;strokeColor=#248814;fillColor=none;verticalAlign=top;align=left;spacingLeft=30;fontColor=#AAB7B8;dashed=0;" vertex="1" parent="2">
+          <mxGeometry x="40" y="40" width="680" height="520" as="geometry" />
+        </mxCell>
+        <!-- Security Group -->
+        <mxCell id="4" value="Security Group: ansible-VM-SG" style="fillColor=none;strokeColor=#DD3522;verticalAlign=top;fontStyle=0;fontColor=#DD3522;whiteSpace=wrap;html=1;dashed=1;" vertex="1" parent="3">
+          <mxGeometry x="40" y="40" width="600" height="440" as="geometry" />
+        </mxCell>
+        <!-- Ansible Master EC2 -->
+        <mxCell id="5" value="Ansible Master&lt;br&gt;t2.micro (Spot)&lt;br&gt;IAM Role" style="points=[[0,0],[0.25,0],[0.5,0],[0.75,0],[1,0],[1,0.25],[1,0.5],[1,0.75],[1,1],[0.75,1],[0.5,1],[0.25,1],[0,1],[0,0.75],[0,0.5],[0,0.25]];outlineConnect=0;gradientColor=none;html=1;whiteSpace=wrap;fontSize=12;fontStyle=0;container=1;pointerEvents=0;collapsible=0;recursiveResize=0;shape=mxgraph.aws4.instance2;verticalAlign=top;align=center;fontColor=#232F3E;strokeColor=#232F3E;fillColor=#ffffff;" vertex="1" parent="4">
+          <mxGeometry x="250" y="60" width="100" height="100" as="geometry" />
+        </mxCell>
+        <!-- Agent 1 -->
+        <mxCell id="6" value="Agent 1&lt;br&gt;t2.micro (Spot)" style="points=[[0,0],[0.25,0],[0.5,0],[0.75,0],[1,0],[1,0.25],[1,0.5],[1,0.75],[1,1],[0.75,1],[0.5,1],[0.25,1],[0,1],[0,0.75],[0,0.5],[0,0.25]];outlineConnect=0;gradientColor=none;html=1;whiteSpace=wrap;fontSize=12;fontStyle=0;container=1;pointerEvents=0;collapsible=0;recursiveResize=0;shape=mxgraph.aws4.instance2;verticalAlign=top;align=center;fontColor=#232F3E;strokeColor=#232F3E;fillColor=#ffffff;" vertex="1" parent="4">
+          <mxGeometry x="100" y="260" width="100" height="100" as="geometry" />
+        </mxCell>
+        <!-- Agent 2 -->
+        <mxCell id="7" value="Agent 2&lt;br&gt;t2.micro (Spot)" style="points=[[0,0],[0.25,0],[0.5,0],[0.75,0],[1,0],[1,0.25],[1,0.5],[1,0.75],[1,1],[0.75,1],[0.5,1],[0.25,1],[0,1],[0,0.75],[0,0.5],[0,0.25]];outlineConnect=0;gradientColor=none;html=1;whiteSpace=wrap;fontSize=12;fontStyle=0;container=1;pointerEvents=0;collapsible=0;recursiveResize=0;shape=mxgraph.aws4.instance2;verticalAlign=top;align=center;fontColor=#232F3E;strokeColor=#232F3E;fillColor=#ffffff;" vertex="1" parent="4">
+          <mxGeometry x="250" y="260" width="100" height="100" as="geometry" />
+        </mxCell>
+        <!-- Agent 3 -->
+        <mxCell id="8" value="Agent 3&lt;br&gt;t2.micro (Spot)" style="points=[[0,0],[0.25,0],[0.5,0],[0.75,0],[1,0],[1,0.25],[1,0.5],[1,0.75],[1,1],[0.75,1],[0.5,1],[0.25,1],[0,1],[0,0.75],[0,0.5],[0,0.25]];outlineConnect=0;gradientColor=none;html=1;whiteSpace=wrap;fontSize=12;fontStyle=0;container=1;pointerEvents=0;collapsible=0;recursiveResize=0;shape=mxgraph.aws4.instance2;verticalAlign=top;align=center;fontColor=#232F3E;strokeColor=#232F3E;fillColor=#ffffff;" vertex="1" parent="4">
+          <mxGeometry x="400" y="260" width="100" height="100" as="geometry" />
+        </mxCell>
+        <!-- Master to Agent 1 Connection -->
+        <mxCell id="9" value="SSH" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;startArrow=none;startFill=0;endArrow=classic;endFill=1;strokeWidth=2;strokeColor=#3399FF;fontColor=#3399FF;" edge="1" parent="4" source="5" target="6">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="150" y="200" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <!-- Master to Agent 2 Connection -->
+        <mxCell id="10" value="SSH" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;startArrow=none;startFill=0;endArrow=classic;endFill=1;strokeWidth=2;strokeColor=#3399FF;fontColor=#3399FF;" edge="1" parent="4" source="5" target="7">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="300" y="200" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <!-- Master to Agent 3 Connection -->
+        <mxCell id="11" value="SSH" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;startArrow=none;startFill=0;endArrow=classic;endFill=1;strokeWidth=2;strokeColor=#3399FF;fontColor=#3399FF;" edge="1" parent="4" source="5" target="8">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="450" y="200" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <!-- IAM Role -->
+        <mxCell id="12" value="IAM Role" style="outlineConnect=0;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;shape=mxgraph.aws3.role;fillColor=#759C3E;gradientColor=none;" vertex="1" parent="3">
+          <mxGeometry x="570" y="60" width="60" height="40" as="geometry" />
+        </mxCell>
+        <!-- IAM Policy -->
+        <mxCell id="13" value="IAM Policy" style="outlineConnect=0;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;shape=mxgraph.aws3.permissions;fillColor=#759C3E;gradientColor=none;" vertex="1" parent="3">
+          <mxGeometry x="570" y="140" width="60" height="60" as="geometry" />
+        </mxCell>
+        <!-- Role to Policy Connection -->
+        <mxCell id="14" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;startArrow=none;startFill=0;endArrow=classic;endFill=1;strokeWidth=1;strokeColor=#759C3E;" edge="1" parent="3" source="12" target="13">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <!-- External Tools Section -->
+        <mxCell id="15" value="External Tools &amp; Services" style="fillColor=none;strokeColor=#5A6C86;verticalAlign=top;fontStyle=0;fontColor=#5A6C86;whiteSpace=wrap;html=1;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="700" width="760" height="100" as="geometry" />
+        </mxCell>
+        <!-- Terraform -->
+        <mxCell id="16" value="Terraform" style="shape=image;verticalLabelPosition=bottom;labelBackgroundColor=none;verticalAlign=top;aspect=fixed;imageAspect=0;image=https://static-00.iconduck.com/assets.00/terraform-icon-1803x2048-hodrzd3t.png;" vertex="1" parent="15">
+          <mxGeometry x="70" y="30" width="40" height="45" as="geometry" />
+        </mxCell>
+        <!-- GitHub -->
+        <mxCell id="17" value="GitHub" style="shape=image;verticalLabelPosition=bottom;labelBackgroundColor=none;verticalAlign=top;aspect=fixed;imageAspect=0;image=https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png;" vertex="1" parent="15">
+          <mxGeometry x="230" y="30" width="40" height="40" as="geometry" />
+        </mxCell>
+        <!-- AWS CLI -->
+        <mxCell id="18" value="AWS CLI" style="outlineConnect=0;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;shape=mxgraph.aws3.cli;fillColor=#444444;gradientColor=none;" vertex="1" parent="15">
+          <mxGeometry x="380" y="30" width="40" height="40" as="geometry" />
+        </mxCell>
+        <!-- Git -->
+        <mxCell id="19" value="Git" style="shape=image;verticalLabelPosition=bottom;labelBackgroundColor=none;verticalAlign=top;aspect=fixed;imageAspect=0;image=https://git-scm.com/images/logos/downloads/Git-Icon-1788C.png;" vertex="1" parent="15">
+          <mxGeometry x="530" y="30" width="40" height="40" as="geometry" />
+        </mxCell>
+        <!-- Ansible -->
+        <mxCell id="20" value="Ansible" style="shape=image;verticalLabelPosition=bottom;labelBackgroundColor=none;verticalAlign=top;aspect=fixed;imageAspect=0;image=https://www.ansible.com/hubfs/2016_Images/Assets/Ansible-Mark-Large-RGB-Mango.png;" vertex="1" parent="15">
+          <mxGeometry x="670" y="30" width="40" height="40" as="geometry" />
+        </mxCell>
+        <!-- Deployment Flow -->
+        <mxCell id="21" value="Infrastructure Deployment" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;startArrow=none;startFill=0;endArrow=classic;endFill=1;strokeWidth=2;strokeColor=#FF8000;fontColor=#FF8000;" edge="1" parent="1" source="16" target="2">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="90" y="680" />
+              <mxPoint x="420" y="680" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <!-- AWS API Interaction -->
+        <mxCell id="22" value="API Calls" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;startArrow=classic;startFill=1;endArrow=classic;endFill=1;strokeWidth=2;strokeColor=#009900;fontColor=#009900;" edge="1" parent="1" source="18" target="2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

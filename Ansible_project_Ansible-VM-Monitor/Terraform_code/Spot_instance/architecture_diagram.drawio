@@ -1,0 +1,169 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/27.0.9 Chrome/134.0.6998.205 Electron/35.4.0 Safari/537.36" version="27.0.9">
+  <diagram id="prtHgNgQTEPvFCAcTncT" name="AWS Ansible VM Monitoring Architecture">
+    <mxGraphModel dx="1500" dy="692" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" value="AWS Ansible VM Monitoring Architecture" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=24;fontStyle=1;fontColor=#232F3E;" parent="1" vertex="1">
+          <mxGeometry x="285" y="20" width="600" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="subtitle" value="Infrastructure created with Terraform and managed by Ansible" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=16;fontStyle=2;fontColor=#666666;" parent="1" vertex="1">
+          <mxGeometry x="334.5" y="50" width="500" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="phase1" value="Phase 1: Infrastructure Provisioning with Terraform" style="text;html=1;strokeColor=#d79b00;fillColor=#ffe6cc;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=1;fontSize=14;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="40" y="90" width="280" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="developer" value="DevOps Engineer" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;strokeColor=#232F3E;fillColor=#ffffff;" parent="1" vertex="1">
+          <mxGeometry x="80" y="160" width="30" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="terraform" value="" style="shape=image;verticalLabelPosition=bottom;labelBackgroundColor=none;verticalAlign=top;aspect=fixed;imageAspect=0;image=https://static-00.iconduck.com/assets.00/terraform-icon-1803x2048-hodrzd3t.png;fontSize=12;fontColor=#232F3E;noLabel=0;" parent="1" vertex="1">
+          <mxGeometry x="160" y="160" width="53" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="terraform_label" value="Terraform" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=12;fontColor=#232F3E;" parent="1" vertex="1">
+          <mxGeometry x="156.5" y="220" width="60" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="github" value="" style="shape=image;verticalLabelPosition=bottom;labelBackgroundColor=none;verticalAlign=top;aspect=fixed;imageAspect=0;image=https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png;" parent="1" vertex="1">
+          <mxGeometry x="260" y="165" width="50" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="github_label" value="GitHub Repository" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=12;fontColor=#232F3E;" parent="1" vertex="1">
+          <mxGeometry x="240" y="220" width="90" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="conn1" value="1. Write &amp; Run" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;startArrow=none;startFill=0;endArrow=classic;endFill=1;strokeWidth=2;strokeColor=#FF8000;fontColor=#FF8000;fontSize=11;fontStyle=1;" parent="1" source="developer" target="terraform" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="conn2" value="2. Store Code" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;startArrow=none;startFill=0;endArrow=classic;endFill=1;strokeWidth=2;strokeColor=#FF8000;fontColor=#FF8000;fontSize=11;fontStyle=1;" parent="1" source="terraform" target="github" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="aws_cloud" value="AWS Cloud" style="points=[[0,0],[0.25,0],[0.5,0],[0.75,0],[1,0],[1,0.25],[1,0.5],[1,0.75],[1,1],[0.75,1],[0.5,1],[0.25,1],[0,1],[0,0.75],[0,0.5],[0,0.25]];outlineConnect=0;gradientColor=none;html=1;whiteSpace=wrap;fontSize=12;fontStyle=0;container=1;pointerEvents=0;collapsible=0;recursiveResize=0;shape=mxgraph.aws4.group;grIcon=mxgraph.aws4.group_aws_cloud;strokeColor=#232F3E;fillColor=#F2F6F8;verticalAlign=top;align=left;spacingLeft=30;fontColor=#232F3E;dashed=0;" parent="1" vertex="1">
+          <mxGeometry x="380" y="140" width="760" height="520" as="geometry" />
+        </mxCell>
+        <mxCell id="vpc" value="VPC" style="points=[[0,0],[0.25,0],[0.5,0],[0.75,0],[1,0],[1,0.25],[1,0.5],[1,0.75],[1,1],[0.75,1],[0.5,1],[0.25,1],[0,1],[0,0.75],[0,0.5],[0,0.25]];outlineConnect=0;gradientColor=none;html=1;whiteSpace=wrap;fontSize=12;fontStyle=0;container=1;pointerEvents=0;collapsible=0;recursiveResize=0;shape=mxgraph.aws4.group;grIcon=mxgraph.aws4.group_vpc;strokeColor=#248814;fillColor=#E9F3E6;verticalAlign=top;align=left;spacingLeft=30;fontColor=#248814;dashed=0;" parent="aws_cloud" vertex="1">
+          <mxGeometry x="40" y="40" width="680" height="440" as="geometry" />
+        </mxCell>
+        <mxCell id="sg" value="Security Group: ansible-VM-SG" style="fillColor=#FFF2CC;strokeColor=#DD3522;verticalAlign=top;fontStyle=1;fontColor=#DD3522;whiteSpace=wrap;html=1;dashed=1;" parent="vpc" vertex="1">
+          <mxGeometry x="40" y="40" width="600" height="360" as="geometry" />
+        </mxCell>
+        <mxCell id="master" value="Ansible Master&lt;br&gt;t2.micro (Spot)&lt;br&gt;IAM Role" style="points=[[0,0],[0.25,0],[0.5,0],[0.75,0],[1,0],[1,0.25],[1,0.5],[1,0.75],[1,1],[0.75,1],[0.5,1],[0.25,1],[0,1],[0,0.75],[0,0.5],[0,0.25]];outlineConnect=0;gradientColor=none;html=1;whiteSpace=wrap;fontSize=12;fontStyle=0;container=1;pointerEvents=0;collapsible=0;recursiveResize=0;shape=mxgraph.aws4.instance2;verticalAlign=top;align=center;fontColor=#232F3E;strokeColor=#232F3E;fillColor=#ffffff;" parent="sg" vertex="1">
+          <mxGeometry x="250" y="60" width="100" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="ansible_master_icon" value="" style="shape=image;html=1;verticalAlign=top;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;imageAspect=0;aspect=fixed;image=https://www.ansible.com/hubfs/2016_Images/Assets/Ansible-Mark-Large-RGB-Mango.png;fontSize=12;fontColor=#232F3E;" parent="sg" vertex="1">
+          <mxGeometry x="275" y="40" width="50" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="agent1" value="Agent 1&lt;br&gt;t2.micro (Spot)" style="points=[[0,0],[0.25,0],[0.5,0],[0.75,0],[1,0],[1,0.25],[1,0.5],[1,0.75],[1,1],[0.75,1],[0.5,1],[0.25,1],[0,1],[0,0.75],[0,0.5],[0,0.25]];outlineConnect=0;gradientColor=none;html=1;whiteSpace=wrap;fontSize=12;fontStyle=0;container=1;pointerEvents=0;collapsible=0;recursiveResize=0;shape=mxgraph.aws4.instance2;verticalAlign=top;align=center;fontColor=#232F3E;strokeColor=#232F3E;fillColor=#ffffff;" parent="sg" vertex="1">
+          <mxGeometry x="100" y="220" width="100" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="agent2" value="Agent 2&lt;br&gt;t2.micro (Spot)" style="points=[[0,0],[0.25,0],[0.5,0],[0.75,0],[1,0],[1,0.25],[1,0.5],[1,0.75],[1,1],[0.75,1],[0.5,1],[0.25,1],[0,1],[0,0.75],[0,0.5],[0,0.25]];outlineConnect=0;gradientColor=none;html=1;whiteSpace=wrap;fontSize=12;fontStyle=0;container=1;pointerEvents=0;collapsible=0;recursiveResize=0;shape=mxgraph.aws4.instance2;verticalAlign=top;align=center;fontColor=#232F3E;strokeColor=#232F3E;fillColor=#ffffff;" parent="sg" vertex="1">
+          <mxGeometry x="250" y="220" width="100" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="agent3" value="Agent 3&lt;br&gt;t2.micro (Spot)" style="points=[[0,0],[0.25,0],[0.5,0],[0.75,0],[1,0],[1,0.25],[1,0.5],[1,0.75],[1,1],[0.75,1],[0.5,1],[0.25,1],[0,1],[0,0.75],[0,0.5],[0,0.25]];outlineConnect=0;gradientColor=none;html=1;whiteSpace=wrap;fontSize=12;fontStyle=0;container=1;pointerEvents=0;collapsible=0;recursiveResize=0;shape=mxgraph.aws4.instance2;verticalAlign=top;align=center;fontColor=#232F3E;strokeColor=#232F3E;fillColor=#ffffff;" parent="sg" vertex="1">
+          <mxGeometry x="400" y="220" width="100" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="conn_master_agent1" value="5. SSH + Monitoring" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;startArrow=none;startFill=0;endArrow=classic;endFill=1;strokeWidth=2;strokeColor=#3399FF;fontColor=#3399FF;fontSize=11;fontStyle=1;" parent="sg" source="master" target="agent1" edge="1">
+          <mxGeometry x="-0.2593" y="-20" relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="150" y="170" />
+            </Array>
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="conn_master_agent2" value="5. SSH + Monitoring" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;startArrow=none;startFill=0;endArrow=classic;endFill=1;strokeWidth=2;strokeColor=#3399FF;fontColor=#3399FF;fontSize=11;fontStyle=1;" parent="sg" source="master" target="agent2" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="300" y="180" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="conn_master_agent3" value="5. SSH + Monitoring" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;startArrow=none;startFill=0;endArrow=classic;endFill=1;strokeWidth=2;strokeColor=#3399FF;fontColor=#3399FF;fontSize=11;fontStyle=1;" parent="sg" source="master" target="agent3" edge="1">
+          <mxGeometry x="-0.2593" y="20" relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="450" y="170" />
+            </Array>
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="iam_role" value="IAM Role" style="outlineConnect=0;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;shape=mxgraph.aws3.role;fillColor=#759C3E;gradientColor=none;" parent="vpc" vertex="1">
+          <mxGeometry x="570" y="60" width="60" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="iam_policy" value="IAM Policy" style="outlineConnect=0;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;shape=mxgraph.aws3.permissions;fillColor=#759C3E;gradientColor=none;" parent="vpc" vertex="1">
+          <mxGeometry x="570" y="140" width="60" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="conn_role_policy" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;startArrow=none;startFill=0;endArrow=classic;endFill=1;strokeWidth=1;strokeColor=#759C3E;" parent="vpc" source="iam_role" target="iam_policy" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="conn_ec2_iam" value="Permissions" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;startArrow=none;startFill=0;endArrow=classic;endFill=1;strokeWidth=1;strokeColor=#759C3E;fontSize=11;" parent="vpc" source="iam_role" target="master" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="450" y="80" />
+              <mxPoint x="450" y="105" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="cloudwatch" value="CloudWatch&#xa;Metrics &amp; Alarms" style="sketch=0;points=[[0,0,0],[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0,0],[0,1,0],[0.25,1,0],[0.5,1,0],[0.75,1,0],[1,1,0],[0,0.25,0],[0,0.5,0],[0,0.75,0],[1,0.25,0],[1,0.5,0],[1,0.75,0]];points=[[0,0,0],[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0,0],[0,1,0],[0.25,1,0],[0.5,1,0],[0.75,1,0],[1,1,0],[0,0.25,0],[0,0.5,0],[0,0.75,0],[1,0.25,0],[1,0.5,0],[1,0.75,0]];outlineConnect=0;fontColor=#232F3E;gradientColor=#F34482;gradientDirection=north;fillColor=#BC1356;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.cloudwatch;" parent="aws_cloud" vertex="1">
+          <mxGeometry x="640" y="440" width="60" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="conn_master_cw" value="6. Send Metrics" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;startArrow=classic;startFill=0;endArrow=classic;endFill=1;strokeWidth=1;strokeColor=#BC1356;fontSize=11;fontStyle=1;" parent="aws_cloud" source="sg" target="cloudwatch" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="340" y="470" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="phase2" value="Phase 2: VM Management with Ansible" style="text;html=1;strokeColor=#6c8ebf;fillColor=#dae8fc;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=1;fontSize=14;fontStyle=1;" parent="1" vertex="1">
+          <mxGeometry x="40" y="300" width="280" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="ansible" value="" style="shape=image;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;verticalAlign=top;aspect=fixed;imageAspect=0;image=https://www.ansible.com/hubfs/2016_Images/Assets/Ansible-Mark-Large-RGB-Mango.png;" parent="1" vertex="1">
+          <mxGeometry x="260" y="350" width="50" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="ansible_label" value="Ansible" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=12;fontColor=#232F3E;" parent="1" vertex="1">
+          <mxGeometry x="255" y="400" width="60" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="awscli" value="" style="outlineConnect=0;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;shape=mxgraph.aws3.cli;fillColor=#444444;gradientColor=none;" parent="1" vertex="1">
+          <mxGeometry x="160" y="350" width="50" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="awscli_label" value="AWS CLI" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=12;fontColor=#232F3E;" parent="1" vertex="1">
+          <mxGeometry x="155" y="400" width="60" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="conn3" value="3. Deploy Infrastructure" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;startArrow=none;startFill=0;endArrow=classic;endFill=1;strokeWidth=2;strokeColor=#FF8000;fontColor=#FF8000;fontSize=11;fontStyle=1;entryX=0;entryY=0.25;entryDx=0;entryDy=0;" parent="1" source="terraform" target="aws_cloud" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="320" y="190" />
+              <mxPoint x="320" y="270" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="conn4" value="4. Dynamic Inventory Discovery" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;startArrow=classic;startFill=1;endArrow=classic;endFill=1;strokeWidth=2;strokeColor=#009900;fontColor=#009900;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontSize=11;fontStyle=1;" parent="1" source="awscli" target="aws_cloud" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="conn5" value="5. Configure &amp; Monitor" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;startArrow=classic;startFill=0;endArrow=classic;endFill=1;strokeWidth=2;strokeColor=#3399FF;fontColor=#3399FF;entryX=0;entryY=0.75;entryDx=0;entryDy=0;fontSize=11;fontStyle=1;" parent="1" source="ansible" target="aws_cloud" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="320" y="375" />
+              <mxPoint x="320" y="530" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="legend" value="Workflow Legend" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=#f5f5f5;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;whiteSpace=wrap;html=1;strokeColor=#666666;fontColor=#333333;" parent="1" vertex="1">
+          <mxGeometry x="35" y="630" width="280" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="legend1" value="1. Write Terraform code for infrastructure" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="legend" vertex="1">
+          <mxGeometry y="26" width="280" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="legend2" value="2. Store code in GitHub repository" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="legend" vertex="1">
+          <mxGeometry y="52" width="280" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="legend3" value="3. Deploy infrastructure with Terraform" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="legend" vertex="1">
+          <mxGeometry y="78" width="280" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="legend4" value="4. Use AWS CLI for dynamic inventory discovery" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="legend" vertex="1">
+          <mxGeometry y="104" width="280" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="legend5" value="5. Configure and monitor VMs with Ansible" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="legend" vertex="1">
+          <mxGeometry y="130" width="280" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="legend6" value="6. Send metrics to CloudWatch for monitoring" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="legend" vertex="1">
+          <mxGeometry y="156" width="280" height="24" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
